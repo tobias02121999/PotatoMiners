@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 23123063499099150}
   - component: {fileID: 64665834487043896}
   - component: {fileID: 65380103242979154}
+  - component: {fileID: 114611455249206910}
+  - component: {fileID: 114983729054372258}
   m_Layer: 0
   m_Name: pre_gridSquare
   m_TagString: Untagged
@@ -37,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809073132137958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 3.2}
+  m_LocalScale: {x: 0.32, y: 1, z: 0.32}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -109,5 +111,40 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 1, z: 10}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 10, y: 0.1, z: 10}
+  m_Center: {x: 0, y: 0.05, z: 0}
+--- !u!114 &114611455249206910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1809073132137958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d64b87f8e4059140892475308e3ccee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridCursorTransform: {fileID: 0}
+  blocks:
+  - {fileID: 1314078189951406, guid: bf4c034d1b292494f9e8124ead889a6b, type: 2}
+  - {fileID: 1314078189951406, guid: bf4c034d1b292494f9e8124ead889a6b, type: 2}
+  - {fileID: 1314078189951406, guid: bf4c034d1b292494f9e8124ead889a6b, type: 2}
+  - {fileID: 1314078189951406, guid: bf4c034d1b292494f9e8124ead889a6b, type: 2}
+  - {fileID: 1314078189951406, guid: bf4c034d1b292494f9e8124ead889a6b, type: 2}
+  - {fileID: 1529033882607552, guid: cf9f5fae5a9c32246b85fefe5b10ec8b, type: 2}
+  - {fileID: 1529033882607552, guid: cf9f5fae5a9c32246b85fefe5b10ec8b, type: 2}
+  - {fileID: 1529033882607552, guid: cf9f5fae5a9c32246b85fefe5b10ec8b, type: 2}
+--- !u!114 &114983729054372258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1809073132137958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ddfb8c25fb08774ea29023064fe98b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockMeshRenderer: {fileID: 23123063499099150}
+  gameController: {fileID: 1246497589428524, guid: 36c2c574a6347d94291941eceff03943,
+    type: 2}

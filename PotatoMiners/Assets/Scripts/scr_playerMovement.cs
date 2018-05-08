@@ -7,16 +7,24 @@ public class scr_playerMovement : MonoBehaviour {
     // Initialize the public variables
     public Rigidbody playerRigidbody;
     public float movementSpeed;
+    public float sprintSpeed;
     public float slowdownSpeed;
+    public float animationSpeed;
     public bool keyboardControls;
+    public Transform playerModelTransform;
 
     [HideInInspector]
     public bool isMoving;
 
+    [HideInInspector]
+    public bool isSelected;
+
     // Initialize the private variables
     private float currentMovementSpeed;
+    private float playerModelRotationX;
     private string movementAxisHorizontal;
     private string movementAxisVertical;
+    private string sprintKey;
 
     // Use this for initialization
     void Start ()
@@ -32,10 +40,12 @@ public class scr_playerMovement : MonoBehaviour {
         {
             movementAxisHorizontal = "Horizontal Keyboard";
             movementAxisVertical = "Vertical Keyboard";
+            sprintKey = "Sprint Keyboard";
         } else
         {
             movementAxisHorizontal = "Horizontal Joy 1";
             movementAxisVertical = "Vertical Joy 1";
+            sprintKey = "Sprint Joy";
         }
 
         // Check if the player is attempting to move
@@ -50,8 +60,12 @@ public class scr_playerMovement : MonoBehaviour {
         // Apply the calculated angle to the current Y rotation of the player if he is moving
         if (isMoving)
         {
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-            currentMovementSpeed = movementSpeed;
+            transform.rotation = Quaternion.Euler(transform.eulerAngles.x, angle, transform.eulerAngles.z);
+
+            if (Input.GetAxis(sprintKey) > 0)
+                currentMovementSpeed = sprintSpeed;
+            else
+                currentMovementSpeed = movementSpeed;
         }
         else
         {
@@ -66,5 +80,8 @@ public class scr_playerMovement : MonoBehaviour {
     {
         // Move the player forward with his current speed
         playerRigidbody.velocity = transform.forward * currentMovementSpeed;
+
+        // Animate the player model
+        playerModelTransform.Rotate(currentMovementSpeed * animationSpeed, 0f, 0f);
     }
 }
